@@ -2,7 +2,6 @@
 
 const ChatCommandProcessor = new NativeClass('Terraria.Chat', 'ChatCommandProcessor');
 const Main = new NativeClass('Terraria', 'Main');
-const Language = new NativeClass('Terraria.Localization', 'Language');
 const GameCulture = new NativeClass('Terraria.Localization', 'GameCulture');
 
 function ClassSetupHelper(arg) {

@@ -4,7 +4,6 @@ const Main = new NativeClass('Terraria', 'Main');
 const Player = new NativeClass('Terraria', 'Player');
 const NPC = new NativeClass('Terraria', 'NPC');
 
-const isNearNPC = Player['bool isNearNPC(int type, float range)'];
 const SpawnNPC = NPC['void SpawnNPC()'];
 
 SpawnNPC.hook(original => {
@@ -13,7 +12,7 @@ SpawnNPC.hook(original => {
 
 	let player = Main.player;
 
-	for (i = 0; i < 255; i++) {
+	for (let i = 0; i < 255; i++) {
 		if (player[i].active && !player[i].dead) {
 			if ((!player[i].isNearNPC(398, NPC.MoonLordFightingDistance))) {
 				if (player[i].ZoneWaterCandle || player[i].inventory[player[i].selectedItem].type == 148) {

@@ -2,7 +2,6 @@
 
 const Recipe = new NativeClass('Terraria', 'Recipe');
 const Item = new NativeClass('Terraria', 'Item');
-const NPC = new NativeClass('Terraria', 'NPC');
 
 const SetDefaults = Item['void SetDefaults(int Type)'];
 const SetupRecipes = Recipe['void SetupRecipes()'];

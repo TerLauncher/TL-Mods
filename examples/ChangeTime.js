@@ -8,7 +8,6 @@ const ItemCheck = Player['void ItemCheck(int i)'];
 const SetDefaults = Item["void SetDefaults(int Type, bool noMatCheck)"];
 
 SetDefaults.hook((original, self, type, noMatCheck) => {
-	
 	original(self, type, noMatCheck);
 
 	switch (type) {

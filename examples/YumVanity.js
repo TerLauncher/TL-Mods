@@ -7,12 +7,9 @@ const Dust = new NativeClass('Terraria', 'Dust');
 const Vector2 = new NativeClass('Microsoft.Xna.Framework', 'Vector2');
 const Color = new NativeClass('Microsoft.Xna.Framework.Graphics', 'Color');
 const GameShaders = new NativeClass('Terraria.Graphics.Shaders', 'GameShaders');
-const ArmorShaderDataSet = new NativeClass('Terraria.Graphics.Shaders', 'ArmorShaderDataSet');
-const Language = new NativeClass('Terraria.Localization', 'Language');
 const GameCulture = new NativeClass('Terraria.Localization', 'GameCulture');
 
 const SetDefaults = Item['void SetDefaults(int Type, bool noMatCheck)'];
-const GetSecondaryShader = ArmorShaderDataSet['ArmorShaderData GetSecondaryShader(int id, Player player)'];
 const VectorMultiply = Vector2['Vector2 op_Multiply(Vector2 value, float scaleFactor)'];
 const SetArmorEffectVisuals = Player['void SetArmorEffectVisuals(Player drawPlayer)'];
 const NewDust = Dust['int NewDust(Vector2 Position, int Width, int Height, int Type, float SpeedX, float SpeedY, int Alpha, Color newColor, float Scale)'];

@@ -4,13 +4,12 @@ const Main = new NativeClass('Terraria', 'Main');
 const Player = new NativeClass('Terraria', 'Player');
 const NPC = new NativeClass('Terraria', 'NPC');
 
-const isNearNPC = Player['bool isNearNPC(int type, float range)'];
 const SpawnNPC = NPC['void SpawnNPC()'];
 
 let AnyBossNPCS = () => {
 	let npc = Main.npc;
 
-	for (i = 0; i < 200; i++) {
+	for (let i = 0; i < 200; i++) {
 		if (npc[i].active && npc[i].type != 395 && (npc[i].boss || npc[i].type == 13 || npc[i].type == 15)) {
 			return true;
 		}
