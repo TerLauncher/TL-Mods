@@ -1,0 +1,117 @@
+{
+	"Class Terraria.Class": {
+		"prefix": "tl - Class",
+		"body": "const ${1:ClassName} = new NativeClass('${2:Namespace}', '${3:Class}');",
+		"description": ""
+	},
+	"Class Terraria.Main": {
+		"prefix": "tl - Main",
+		"body":	"const Main = new NativeClass('Terraria', 'Main');",
+		"description": ""
+	},
+	"Class Terraria.Player": {
+		"prefix": "tl - Player",
+		"body": "const Player = new NativeClass('Terraria', 'Player');",
+		"description": ""
+	},
+	"Class Terraria.NPC": {
+		"prefix": "tl - NPC",
+		"body": "const NPC = new NativeClass('Terraria', 'NPC');",
+		"description": ""
+	},
+	"Class Terraria.ID.NPCID": {
+		"prefix": "tl - NPCID",
+		"body": "const NPCID = new NativeClass('Terraria.ID', 'NPCID');",
+		"description": ""
+	},
+	"Class Terraria.Lang": {
+		"prefix": "tl - Lang",
+		"body": "const Lang = new NativeClass('Terraria', 'Lang');",
+		"description": ""
+	},
+	"Class Terraria.Chest": {
+		"prefix": "tl - Chest",
+		"body": "const Chest = new NativeClass('Terraria', 'Chest');",
+		"description": ""
+	},
+	"Class Terraria.Item": {
+		"prefix": "tl - Item",
+		"body": "const Item = new NativeClass('Terraria', 'Item');",
+		"description": ""
+	},
+	"Class Terraria.ID.ItemID": {
+		"prefix": "tl - ItemID",
+		"body": "const ItemID = new NativeClass('Terraria.ID', 'ItemID');",
+		"description": ""
+	},
+	"Class Terraria.Recipe": {
+		"prefix": "tl - Recipe",
+		"body": "const Recipe = new NativeClass('Terraria', 'Recipe');",
+		"description": ""
+	},
+	"Class Terraria.Localization.Language": {
+		"prefix": "tl - Language",
+		"body": "const Language = new NativeClass('Terraria.Localization', 'Language');",
+		"description": ""
+	},
+	"Class Terraria.Localization.LocalizedText": {
+		"prefix": "tl - LocalizedText",
+		"body": "const LocalizedText = new NativeClass('Terraria.Localization', 'LocalizedText');",
+		"description": ""
+	},
+	"Class Terraria.WorldGen": {
+		"prefix": "tl - WorldGen",
+		"body": "const WorldGen = new NativeClass('Terraria', 'WorldGen');",
+		"description": ""
+	},
+	"Class Terraria.GameContent.Events.DD2Event": {
+		"prefix": "tl - DD2Event",
+		"body": "const DD2Event = new NativeClass('Terraria.GameContent.Events', 'DD2Event');",
+		"description": ""
+	},
+	"Class Terraria.Projectile": {
+		"prefix": "tl - Projectile",
+		"body": "const Projectile = new NativeClass('Terraria', 'Projectile');",
+		"description": ""
+	},
+	"Class Terraria.ID.ProjectileID": {
+		"prefix": "tl - ProjectileID",
+		"body": "const ProjectileID = new NativeClass('Terraria.ID', 'ProjectileID');",
+		"description": ""
+	},
+	"Class Terraria.Collision": {
+		"prefix": "tl - Collision",
+		"body": "const Collision = new NativeClass('Terraria', 'Collision');",
+		"description": ""
+	},
+	"Class Terraria.Graphics.Shaders.GameShaders": {
+		"prefix": "tl - GameShaders",
+		"body": "const GameShaders = new NativeClass('Terraria.Graphics.Shaders', 'GameShaders');",
+		"description": ""
+	},
+	"Class Microsoft.Xna.Framework.Rectangle": {
+		"prefix": "tl - Rectangle",
+		"body": "const Rectangle = new NativeClass('Microsoft.Xna.Framework', 'Rectangle');",
+		"description": ""
+	},
+	"Class Microsoft.Xna.Framework.Vector2": {
+		"prefix": "tl - Vector2",
+		"body": "const Vector2 = new NativeClass('Microsoft.Xna.Framework', 'Vector2');",
+		"description": ""
+	},
+	"Class Microsoft.Xna.Framework.Graphics.Color": {
+		"prefix": "tl - Color",
+		"body": "const Color = new NativeClass('Microsoft.Xna.Framework.Graphics', 'Color');",
+		"description": ""
+	},
+	"Class Terraria.Chat.ChatCommandProcessor": {
+		"prefix": "tl - ChatCommandProcessor",
+		"body": "const ChatCommandProcessor = new NativeClass('Terraria.Chat', 'ChatCommandProcessor');",
+		"description": ""
+	},
+	"Class Terraria.Localization.GameCulture": {
+		"prefix": "tl - GameCulture",
+		"body": "const GameCulture = new NativeClass('Terraria.Localization', 'GameCulture');",
+		"description": ""
+	},
+}
