@@ -1,117 +1,402 @@
 {
 	"Class Terraria.Class": {
-		"prefix": "tl - Class",
+		"prefix": "tlc - Class",
 		"body": "const ${1:ClassName} = new NativeClass('${2:Namespace}', '${3:Class}');",
 		"description": ""
 	},
 	"Class Terraria.Main": {
-		"prefix": "tl - Main",
+		"prefix": "tlc - Main",
 		"body":	"const Main = new NativeClass('Terraria', 'Main');",
 		"description": ""
 	},
 	"Class Terraria.Player": {
-		"prefix": "tl - Player",
+		"prefix": "tlc - Player",
 		"body": "const Player = new NativeClass('Terraria', 'Player');",
 		"description": ""
 	},
 	"Class Terraria.NPC": {
-		"prefix": "tl - NPC",
+		"prefix": "tlc - NPC",
 		"body": "const NPC = new NativeClass('Terraria', 'NPC');",
 		"description": ""
 	},
 	"Class Terraria.ID.NPCID": {
-		"prefix": "tl - NPCID",
+		"prefix": "tlc - NPCID",
 		"body": "const NPCID = new NativeClass('Terraria.ID', 'NPCID');",
 		"description": ""
 	},
 	"Class Terraria.Lang": {
-		"prefix": "tl - Lang",
+		"prefix": "tlc - Lang",
 		"body": "const Lang = new NativeClass('Terraria', 'Lang');",
 		"description": ""
 	},
 	"Class Terraria.Chest": {
-		"prefix": "tl - Chest",
+		"prefix": "tlc - Chest",
 		"body": "const Chest = new NativeClass('Terraria', 'Chest');",
 		"description": ""
 	},
 	"Class Terraria.Item": {
-		"prefix": "tl - Item",
+		"prefix": "tlc - Item",
 		"body": "const Item = new NativeClass('Terraria', 'Item');",
 		"description": ""
 	},
 	"Class Terraria.ID.ItemID": {
-		"prefix": "tl - ItemID",
+		"prefix": "tlc - ItemID",
 		"body": "const ItemID = new NativeClass('Terraria.ID', 'ItemID');",
 		"description": ""
 	},
 	"Class Terraria.Recipe": {
-		"prefix": "tl - Recipe",
+		"prefix": "tlc - Recipe",
 		"body": "const Recipe = new NativeClass('Terraria', 'Recipe');",
 		"description": ""
 	},
 	"Class Terraria.Localization.Language": {
-		"prefix": "tl - Language",
+		"prefix": "tlc - Language",
 		"body": "const Language = new NativeClass('Terraria.Localization', 'Language');",
 		"description": ""
 	},
 	"Class Terraria.Localization.LocalizedText": {
-		"prefix": "tl - LocalizedText",
+		"prefix": "tlc - LocalizedText",
 		"body": "const LocalizedText = new NativeClass('Terraria.Localization', 'LocalizedText');",
 		"description": ""
 	},
 	"Class Terraria.WorldGen": {
-		"prefix": "tl - WorldGen",
+		"prefix": "tlc - WorldGen",
 		"body": "const WorldGen = new NativeClass('Terraria', 'WorldGen');",
 		"description": ""
 	},
 	"Class Terraria.GameContent.Events.DD2Event": {
-		"prefix": "tl - DD2Event",
+		"prefix": "tlc - DD2Event",
 		"body": "const DD2Event = new NativeClass('Terraria.GameContent.Events', 'DD2Event');",
 		"description": ""
 	},
 	"Class Terraria.Projectile": {
-		"prefix": "tl - Projectile",
+		"prefix": "tlc - Projectile",
 		"body": "const Projectile = new NativeClass('Terraria', 'Projectile');",
 		"description": ""
 	},
 	"Class Terraria.ID.ProjectileID": {
-		"prefix": "tl - ProjectileID",
+		"prefix": "tlc - ProjectileID",
 		"body": "const ProjectileID = new NativeClass('Terraria.ID', 'ProjectileID');",
 		"description": ""
 	},
 	"Class Terraria.Collision": {
-		"prefix": "tl - Collision",
+		"prefix": "tlc - Collision",
 		"body": "const Collision = new NativeClass('Terraria', 'Collision');",
 		"description": ""
 	},
 	"Class Terraria.Graphics.Shaders.GameShaders": {
-		"prefix": "tl - GameShaders",
+		"prefix": "tlc - GameShaders",
 		"body": "const GameShaders = new NativeClass('Terraria.Graphics.Shaders', 'GameShaders');",
 		"description": ""
 	},
 	"Class Microsoft.Xna.Framework.Rectangle": {
-		"prefix": "tl - Rectangle",
+		"prefix": "tlc - Rectangle",
 		"body": "const Rectangle = new NativeClass('Microsoft.Xna.Framework', 'Rectangle');",
 		"description": ""
 	},
 	"Class Microsoft.Xna.Framework.Vector2": {
-		"prefix": "tl - Vector2",
+		"prefix": "tlc - Vector2",
 		"body": "const Vector2 = new NativeClass('Microsoft.Xna.Framework', 'Vector2');",
 		"description": ""
 	},
 	"Class Microsoft.Xna.Framework.Graphics.Color": {
-		"prefix": "tl - Color",
+		"prefix": "tlc - Color",
 		"body": "const Color = new NativeClass('Microsoft.Xna.Framework.Graphics', 'Color');",
 		"description": ""
 	},
 	"Class Terraria.Chat.ChatCommandProcessor": {
-		"prefix": "tl - ChatCommandProcessor",
+		"prefix": "tlc - ChatCommandProcessor",
 		"body": "const ChatCommandProcessor = new NativeClass('Terraria.Chat', 'ChatCommandProcessor');",
 		"description": ""
 	},
 	"Class Terraria.Localization.GameCulture": {
-		"prefix": "tl - GameCulture",
+		"prefix": "tlc - GameCulture",
 		"body": "const GameCulture = new NativeClass('Terraria.Localization', 'GameCulture');",
 		"description": ""
 	},
+	"Class Terraria.CombatText": {
+		"prefix": "tlc - CombatText",
+		"body": "const CombatText = new NativeClass('Terraria', 'CombatText');",
+		"description": ""
+	},
+	"Class Terraria.NetMessage": {
+		"prefix": "tlc - NetMessage",
+		"body": "const NetMessage = new NativeClass('Terraria', 'NetMessage');",
+		"description": ""
+	},
+	"Class Terraria.RecipeGroup": {
+		"prefix": "tlc - RecipeGroup",
+		"body": "const RecipeGroup = new NativeClass('Terraria', 'RecipeGroup');",
+		"description": ""
+	},
+	"Class Terraria.Tile": {
+		"prefix": "tlc - Tile",
+		"body": "const Tile = new NativeClass('Terraria', 'Tile');",
+		"description": ""
+	},
+	"Class Terraria.ID.AmmoID": {
+		"prefix": "tlc - AmmoID",
+		"body": "const AmmoID = new NativeClass('Terraria.ID', 'AmmoID');",
+		"description": ""
+	},
+	"Class Terraria.ID.BuffID": {
+		"prefix": "tlc - BuffID",
+		"body": "const BuffID = new NativeClass('Terraria.ID', 'BuffID');",
+		"description": ""
+	},
+	"Class Terraria.ID.DustID": {
+		"prefix": "tlc - DustID",
+		"body": "const DustID = new NativeClass('Terraria.ID', 'DustID');",
+		"description": ""
+	},
+	"Class Terraria.ID.PrefixID": {
+		"prefix": "tlc - PrefixID",
+		"body": "const PrefixID = new NativeClass('Terraria.ID', 'PrefixID');",
+		"description": ""
+	},
+	"Class Terraria.ID.TileID": {
+		"prefix": "tlc - TileID",
+		"body": "const TileID = new NativeClass('Terraria.ID', 'TileID');",
+		"description": ""
+	},
+	"Class Terraria.ID.WallID": {
+		"prefix": "tlc - WallID",
+		"body": "const WallID = new NativeClass('Terraria.ID', 'WallID');",
+		"description": ""
+	},
+	"Class Terraria.Localization.LanguageManager": {
+		"prefix": "tlc - LanguageManager",
+		"body": "const LanguageManager = new NativeClass('Terraria.Localization', 'LanguageManager');",
+		"description": ""
+	},
+	"Hook Recipe.SetupRecipes()": {
+		"prefix": "tlh - SetupRecipes",
+		"body": [
+			"Recipe.SetupRecipes.hook((original) => {",
+			"\toriginal();",
+			"\t${0}",
+			"});"
+		],
+		"description": ""
+	},
+	"Hook ChatCommandProcessor.ProcessIncomingMessage()": {
+		"prefix": "tlh - ProcessIncomingMessage",
+		"body": [
+			"ChatCommandProcessor.ProcessIncomingMessage.hook((original, self, message, client_id) => {",
+			"\toriginal(self, message, client_id);",
+			"\t${0}",
+			"});"
+		],
+		"description": ""
+	},
+	"Hook NPC.ScaleStats_ApplyGameMode()": {
+		"prefix": "tlh - ScaleStats_ApplyGameMode",
+		"body": [
+			"NPC.ScaleStats_ApplyGameMode.hook((original, self, gameModeData) => {",
+			"\toriginal(self, gameModeData);",
+			"\t${0}",
+			"});"
+		],
+		"description": ""
+	},
+	"Hook NPC.ScaleStats_UseStrengthMultiplier()": {
+		"prefix": "tlh - ScaleStats_UseStrengthMultiplier",
+		"body": [
+			"NPC.ScaleStats_UseStrengthMultiplier.hook((original, self, strength) => {",
+			"\toriginal(self, strength);",
+			"\t${0}",
+			"});"
+		],
+		"description": ""
+	},
+	"Hook NPC.SpawnNPC()": {
+		"prefix": "tlh - SpawnNPC",
+		"body": [
+			"NPC.SpawnNPC.hook((original) => {",
+			"\toriginal();",
+			"\t${0}",
+			"});"
+		],
+		"description": ""
+	},
+	"Hook Player.ItemCheck()": {
+		"prefix": "tlh - ItemCheck",
+		"body": [
+			"Player.ItemCheck.hook((original, self, i) => {",
+			"\toriginal(self, i);",
+			"\t${0}",
+			"});"
+		],
+		"description": ""
+	},
+	"Hook Player.Update()": {
+		"prefix": "tlh - Update",
+		"body": [
+			"Player.Update.hook((original, self, i) => {",
+			"\toriginal(self, i);",
+			"\t${0}",
+			"});"
+		],
+		"description": ""
+	},
+	"Hook Projectile.Damage()": {
+		"prefix": "tlh - Damage",
+		"body": [
+			"Projectile.Damage.hook((original, self) => {",
+			"\toriginal(self);",
+			"\t${0}",
+			"});"
+		],
+		"description": ""
+	},
+	"Hook Projectile.Update()": {
+		"prefix": "tlh - Update",
+		"body": [
+			"Projectile.Update.hook((original, self, i) => {",
+			"\toriginal(self, i);",
+			"\t${0}",
+			"});"
+		],
+		"description": ""
+	},
+	"Hook Player.ItemCheck_MeleeHitNPCs()": {
+		"prefix": "tlh - ItemCheck_MeleeHitNPCs",
+		"body": [
+			"Player.ItemCheck_MeleeHitNPCs.hook((original, self, sItem, itemRectangle, originalDamage, knockBack) => {",
+			"\toriginal(self, sItem, itemRectangle, originalDamage, knockBack);",
+			"\t${0}",
+			"});"
+		],
+		"description": ""
+	},
+	"Hook Player.OpenFishingCrate()": {
+		"prefix": "tlh - OpenFishingCrate",
+		"body": [
+			"Player.OpenFishingCrate.hook((original, self, crateItemID) => {",
+			"\toriginal(self, crateItemID);",
+			"\t${0}",
+			"});"
+		],
+		"description": ""
+	},
+	"Hook NPC.NPCLoot_DropItems()": {
+		"prefix": "tlh - NPCLoot_DropItems",
+		"body": [
+			"NPC.NPCLoot_DropItems.hook((original, self, closestPlayer) => {",
+			"\toriginal(self, closestPlayer);",
+			"\t${0}",
+			"});"
+		],
+		"description": ""
+	},
+	"Hook Player.UpdateBiomes()": {
+		"prefix": "tlh - UpdateBiomes",
+		"body": [
+			"Player.UpdateBiomes.hook((original, self) => {",
+			"\toriginal(self);",
+			"\t${0}",
+			"});"
+		],
+		"description": ""
+	},
+	"Hook Player.UpdateEquips()": {
+		"prefix": "tlh - UpdateEquips",
+		"body": [
+			"Player.UpdateEquips.hook((original, self, i) => {",
+			"\toriginal(self, i);",
+			"\t${0}",
+			"});"
+		],
+		"description": ""
+	},
+	"Hook Projectile.StatusNPC()": {
+		"prefix": "tlh - StatusNPC",
+		"body": [
+			"Projectile.StatusNPC.hook((original, self, i) => {",
+			"\toriginal(self, i);",
+			"\t${0}",
+			"});"
+		],
+		"description": ""
+	},
+	"Hook Projectile.StatusPlayer()": {
+		"prefix": "tlh - StatusPlayer",
+		"body": [
+			"Projectile.StatusPlayer.hook((original, self, i) => {",
+			"\toriginal(self, i);",
+			"\t${0}",
+			"});"
+		],
+		"description": ""
+	},
+	"Hook Item.AffixName()": {
+		"prefix": "tlh - AffixName",
+		"body": [
+			"Item.AffixName.hook((original, self) => {",
+			"\toriginal(self);",
+			"\t${0}",
+			"});"
+		],
+		"description": ""
+	},
+	"Hook Chest.SetupShop()": {
+		"prefix": "tlh - SetupShop",
+		"body": [
+			"Chest.SetupShop.hook((original, self, type) => {",
+			"\toriginal(self, type);",
+			"\t${0}",
+			"});"
+		],
+		"description": ""
+	},
+	"Hook Player.UpdateArmorSets()": {
+		"prefix": "tlh - UpdateArmorSets",
+		"body": [
+			"Player.UpdateArmorSets.hook((original, self, i) => {",
+			"\toriginal(self, i);",
+			"\t${0}",
+			"});"
+		],
+		"description": ""
+	},
+	"Hook Player.ApplyEquipFunctional()": {
+		"prefix": "tlh - ApplyEquipFunctional",
+		"body": [
+			"Player.ApplyEquipFunctional.hook((original, self, itemSlot, currentItem) => {",
+			"\toriginal(self, itemSlot, currentItem);",
+			"\t${0}",
+			"});"
+		],
+		"description": ""
+	},
+	"Hook Player.SetArmorEffectVisuals()": {
+		"prefix": "tlh - SetArmorEffectVisuals",
+		"body": [
+			"Player.SetArmorEffectVisuals.hook((original, self, drawPlayer) => {",
+			"\toriginal(self, drawPlayer);",
+			"\t${0}",
+			"});"
+		],
+		"description": ""
+	},
+	"Hook Player.UpdateDead()": {
+		"prefix": "tlh - UpdateDead",
+		"body": [
+			"Player.UpdateDead.hook((original, self) => {",
+			"\toriginal(self);",
+			"\t${0}",
+			"});"
+		],
+		"description": ""
+	},
+	"Hook Player.UpdateLifeRegen()": {
+		"prefix": "tlh - UpdateLifeRegen",
+		"body": [
+			"Player.UpdateLifeRegen.hook((original, self) => {",
+			"\toriginal(self);",
+			"\t${0}",
+			"});"
+		],
+		"description": ""
+	}
 }

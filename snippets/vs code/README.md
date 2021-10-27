@@ -16,140 +16,392 @@
 
 ## Classes
 
-### [tlClass] Terraria.Class
+### [tlcClass] Terraria.Class
 
 ```javascript
 const VariableName = new NativeClass('Namespace', 'ClassName');
 ```
 
-### [tlMain] Terraria.Main
+### [tlcMain] Terraria.Main
 
 ```javascript
 const Main = new NativeClass('Terraria', 'Main');
 ```
 
-### [tlPlayer] Terraria.Player
+### [tlcPlayer] Terraria.Player
 
 ```javascript
 const Player = new NativeClass('Terraria', 'Player');
 ```
 
-### [tlNPC] Terraria.NPC
+### [tlcNPC] Terraria.NPC
 
 ```javascript
 const NPC = new NativeClass('Terraria', 'NPC');
 ```
 
-### [tlNPCID] Terraria.ID.NPCID
+### [tlcNPCID] Terraria.ID.NPCID
 
 ```javascript
 const NPCID = new NativeClass('Terraria.ID', 'NPCID');
 ```
 
-### [tlLang] Terraria.Lang
+### [tlcLang] Terraria.Lang
 
 ```javascript
 const Lang = new NativeClass('Terraria', 'Lang');
 ```
 
-### [tlChest] Terraria.Chest
+### [tlcChest] Terraria.Chest
 
 ```javascript
 const Chest = new NativeClass('Terraria', 'Chest');
 ```
 
-### [tlItem] Terraria.Item
+### [tlcItem] Terraria.Item
 
 ```javascript
 const Item = new NativeClass('Terraria', 'Item');
 ```
 
-### [tlItemID] Terraria.ID.ItemID
+### [tlcItemID] Terraria.ID.ItemID
 
 ```javascript
 const ItemID = new NativeClass('Terraria.ID', 'ItemID');
 ```
 
-### [tlRecipe] Terraria.Recipe
+### [tlcRecipe] Terraria.Recipe
 
 ```javascript
 const Recipe = new NativeClass('Terraria', 'Recipe');
 ```
 
-### [tlLanguage] Terraria.Localization.Language
+### [tlcLanguage] Terraria.Localization.Language
 
 ```javascript
 const Language = new NativeClass('Terraria.Localization', 'Language');
 ```
 
-### [tlLocalizedText] Terraria.Localization.LocalizedText
+### [tlcLocalizedText] Terraria.Localization.LocalizedText
 
 ```javascript
 const LocalizedText = new NativeClass('Terraria.Localization', 'LocalizedText');
 ```
 
-### [tlGameCulture] Terraria.Localization.GameCulture
+### [tlcGameCulture] Terraria.Localization.GameCulture
 
 ```javascript
 const GameCulture = new NativeClass('Terraria.Localization', 'GameCulture');
 ```
 
-### [tlWorldGen] Terraria.WorldGen
+### [tlcWorldGen] Terraria.WorldGen
 
 ```javascript
 const WorldGen = new NativeClass('Terraria', 'WorldGen');
 ```
 
-### [tlDD2Event] Terraria.GameContent.Events.DD2Event
+### [tlcDD2Event] Terraria.GameContent.Events.DD2Event
 
 ```javascript
 const DD2Event = new NativeClass('Terraria.GameContent.Events', 'DD2Event');
 ```
 
-### [tlProjectile] Terraria.Projectile
+### [tlcProjectile] Terraria.Projectile
 
 ```javascript
 const Projectile = new NativeClass('Terraria', 'Projectile');
 ```
 
-### [tlProjectileID] Terraria.ID.ProjectileID
+### [tlcProjectileID] Terraria.ID.ProjectileID
 
 ```javascript
 const ProjectileID = new NativeClass('Terraria.ID', 'ProjectileID');
 ```
 
-### [tlCollision] Terraria.Collision
+### [tlcCollision] Terraria.Collision
 
 ```javascript
 const Collision = new NativeClass('Terraria', 'Collision');
 ```
 
-### [tlGameShaders] Terraria.Graphics.Shaders.GameShaders
+### [tlcGameShaders] Terraria.Graphics.Shaders.GameShaders
 
 ```javascript
 const GameShaders = new NativeClass('Terraria.Graphics.Shaders', 'GameShaders');
 ```
 
-### [tlRectangle] Microsoft.Xna.Framework.Rectangle
+### [tlcRectangle] Microsoft.Xna.Framework.Rectangle
 
 ```javascript
 const Rectangle = new NativeClass('Microsoft.Xna.Framework', 'Rectangle');
 ```
 
-### [tlVector2] Microsoft.Xna.Framework.Vector2
+### [tlcVector2] Microsoft.Xna.Framework.Vector2
 
 ```javascript
 const Vector2 = new NativeClass('Microsoft.Xna.Framework', 'Vector2');
 ```
 
-### [tlColor] Microsoft.Xna.Framework.Graphics.Color
+### [tlcColor] Microsoft.Xna.Framework.Graphics.Color
 
 ```javascript
 const Color = new NativeClass('Microsoft.Xna.Framework.Graphics', 'Color');
 ```
 
-### [tlChatCommandProcessor] Terraria.Chat.ChatCommandProcessor
+### [tlcChatCommandProcessor] Terraria.Chat.ChatCommandProcessor
 
 ```javascript
 const ChatCommandProcessor = new NativeClass('Terraria.Chat', 'ChatCommandProcessor');
+```
+
+### [tlcCombatText] Terraria.CombatText
+
+```javascript
+const CombatText = new NativeClass('Terraria', 'CombatText');
+```
+
+### [tlcNetMessage] Terraria.NetMessage
+
+```javascript
+const NetMessage = new NativeClass('Terraria', 'NetMessage');
+```
+
+### [tlcRecipeGroup] Terraria.RecipeGroup
+
+```javascript
+const RecipeGroup = new NativeClass('Terraria', 'RecipeGroup');
+```
+
+### [tlcTile] Terraria.Tile
+
+```javascript
+const Tile = new NativeClass('Terraria', 'Tile');
+```
+
+### [tlcAmmoID] Terraria.ID.AmmoID
+
+```javascript
+const AmmoID = new NativeClass('Terraria.ID', 'AmmoID');
+```
+
+### [tlcBuffID] Terraria.ID.BuffID
+
+```javascript
+const BuffID = new NativeClass('Terraria.ID', 'BuffID');
+```
+
+### [tlcDustID] Terraria.ID.DustID
+
+```javascript
+const DustID = new NativeClass('Terraria.ID', 'DustID');
+```
+
+### [tlcPrefixID] Terraria.ID.PrefixID
+
+```javascript
+const PrefixID = new NativeClass('Terraria.ID', 'PrefixID');
+```
+
+### [tlcTileID] Terraria.ID.TileID
+
+```javascript
+const TileID = new NativeClass('Terraria.ID', 'TileID');
+```
+
+### [tlcWallID] Terraria.ID.WallID
+
+```javascript
+const WallID = new NativeClass('Terraria.ID', 'WallID');
+```
+
+### [tlcLanguageManager] Terraria.Localization.LanguageManager
+
+```javascript
+const LanguageManager = new NativeClass('Terraria.Localization', 'LanguageManager');
+```
+
+## Hooks
+
+### [tlhSetupRecipes] Recipe.SetupRecipes()
+
+```javascript
+Recipe.SetupRecipes.hook((original) => {
+	original();
+});
+```
+
+### [tlhProcessIncomingMessage] ChatCommandProcessor.ProcessIncomingMessage()
+
+```javascript
+ChatCommandProcessor.ProcessIncomingMessage.hook((original, self, message, client_id) => {
+	original(self, message, client_id);
+});
+```
+
+### [tlhScaleStats_ApplyGameMode] NPC.ScaleStats_ApplyGameMode()
+
+```javascript
+NPC.ScaleStats_ApplyGameMode.hook((original, self, gameModeData) => {
+	original(self, gameModeData);
+});
+```
+
+### [tlhScaleStats_UseStrengthMultiplier] NPC.ScaleStats_UseStrengthMultiplier()
+
+```javascript
+NPC.ScaleStats_UseStrengthMultiplier.hook((original, self, strength) => {
+	original(self, strength);
+});
+```
+
+### [tlhSpawnNPC] NPC.SpawnNPC()
+
+```javascript
+NPC.SpawnNPC.hook((original) => {
+	original();
+});
+```
+
+### [tlhItemCheck] Player.ItemCheck()
+
+```javascript
+Player.ItemCheck.hook((original, self, i) => {
+	original(self, i);
+});
+```
+
+### [tlhUpdate] Player.Update()
+
+```javascript
+Player.Update.hook((original, self, i) => {
+	original(self, i);
+});
+```
+
+### [tlhDamage] Projectile.Damage()
+
+```javascript
+Projectile.Damage.hook((original, self) => {
+	original(self);
+});
+```
+
+### [tlhUpdate] Projectile.Update()
+
+```javascript
+Projectile.Update.hook((original, self, i) => {
+	original(self, i);
+});
+```
+
+### [tlhItemCheck_MeleeHitNPCs] Player.ItemCheck_MeleeHitNPCs()
+
+```javascript
+Player.ItemCheck_MeleeHitNPCs.hook((original, self, sItem, itemRectangle, originalDamage, knockBack) => {
+	original(self, sItem, itemRectangle, originalDamage, knockBack);
+});
+```
+
+### [tlhOpenFishingCrate] Player.OpenFishingCrate()
+
+```javascript
+Player.OpenFishingCrate.hook((original, self, crateItemID) => {
+	original(self, crateItemID);
+});
+```
+
+### [tlhNPCLoot_DropItems] NPC.NPCLoot_DropItems()
+
+```javascript
+NPC.NPCLoot_DropItems.hook((original, self, closestPlayer) => {
+	original(self, closestPlayer);
+});
+```
+
+### [tlhUpdateBiomes] Player.UpdateBiomes()
+
+```javascript
+Player.UpdateBiomes.hook((original, self) => {
+	original(self);
+});
+```
+
+### [tlhUpdateEquips] Player.UpdateEquips()
+
+```javascript
+Player.UpdateEquips.hook((original, self, i) => {
+	original(self, i);
+});
+```
+
+### [tlhStatusNPC] Projectile.StatusNPC()
+
+```javascript
+Projectile.StatusNPC.hook((original, self, i) => {
+	original(self, i);
+});
+```
+
+### [tlhStatusPlayer] Projectile.StatusPlayer()
+
+```javascript
+Projectile.StatusPlayer.hook((original, self, i) => {
+	original(self, i);
+});
+```
+
+### [tlhAffixName] Item.AffixName()
+
+```javascript
+Item.AffixName.hook((original, self) => {
+	original(self);
+});
+```
+
+### [tlhSetupShop] Chest.SetupShop()
+
+```javascript
+Chest.SetupShop.hook((original, self, type) => {
+	original(self, type);
+});
+```
+
+### [tlhUpdateArmorSets] Player.UpdateArmorSets()
+
+```javascript
+Player.UpdateArmorSets.hook((original, self, i) => {
+	original(self, i);
+});
+```
+
+### [tlhApplyEquipFunctional] Player.ApplyEquipFunctional()
+
+```javascript
+Player.ApplyEquipFunctional.hook((original, self, itemSlot, currentItem) => {
+	original(self, itemSlot, currentItem);
+});
+```
+
+### [tlhSetArmorEffectVisuals] Player.SetArmorEffectVisuals()
+
+```javascript
+Player.SetArmorEffectVisuals.hook((original, self, drawPlayer) => {
+	original(self, drawPlayer);
+});
+```
+
+### [tlhUpdateDead] Player.UpdateDead()
+
+```javascript
+Player.UpdateDead.hook((original, self) => {
+	original(self);
+});
+```
+
+### [tlhUpdateLifeRegen] Player.UpdateLifeRegen()
+
+```javascript
+Player.UpdateLifeRegen.hook((original, self) => {
+	original(self);
+});
 ```
