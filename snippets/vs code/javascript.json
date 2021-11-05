@@ -169,6 +169,11 @@
 		"body": "const LanguageManager = new NativeClass('Terraria.Localization', 'LanguageManager');",
 		"description": ""
 	},
+	"Class Terraria.Utils": {
+		"prefix": "tlc - Utils",
+		"body": "const Utils = new NativeClass('Terraria', 'Utils');",
+		"description": ""
+	},
 	"Hook Recipe.SetupRecipes()": {
 		"prefix": "tlh - SetupRecipes",
 		"body": [
