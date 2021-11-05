@@ -22,7 +22,7 @@ function AllDamageBoost(player, boost) {
 ApplyEquipFunctional.hook((original, self, itemSlot, currentItem) => {
 	original(self, itemSlot, currentItem);
 
-	let type = currentItem.type;
+	const type = currentItem.type;
 
 	switch (type) {
 		case 749:
@@ -50,7 +50,7 @@ ApplyEquipFunctional.hook((original, self, itemSlot, currentItem) => {
 			self.moveSpeed += 0.3;
 			break;
 		case 786:
-			if ((self.head == 7 || self.head == 75) && self.body == 7 && self.legs == 7) {
+			if ((self.head === 7 || self.head === 75) && self.body === 7 && self.legs === 7) {
 				self.moveSpeed += 0.15;
 				self.rangedDamage += 0.12;
 				self.rangedCrit += 16;
@@ -62,7 +62,7 @@ ApplyEquipFunctional.hook((original, self, itemSlot, currentItem) => {
 			self.meleeCrit += 5;
 			break;
 		case 822:
-			if (self.head == 46 && self.body == 27 && self.legs == 26) {
+			if (self.head === 46 && self.body === 27 && self.legs === 26) {
 				self.meleeDamage += 0.02;
 				self.rangedDamage += 0.02;
 				self.meleeCrit++;
@@ -70,11 +70,11 @@ ApplyEquipFunctional.hook((original, self, itemSlot, currentItem) => {
 			}
 			break;
 		case 823:
-			if (player.body == 66 && self.legs == 55) {
-				if (self.head == 101) {
+			if (self.body === 66 && self.legs === 55) {
+				if (self.head === 101) {
 					self.statDefense += 10;
 					self.endurance += 0.05;
-				} else if (self.head == 156) {
+				} else if (self.head === 156) {
 					self.statManaMax2 += 20;
 					self.magicDamage += 0.05;
 					self.manaCost *= 0.95;
@@ -102,7 +102,7 @@ ApplyEquipFunctional.hook((original, self, itemSlot, currentItem) => {
 			AllCritBoost(self, 5);
 			break;
 		case 1830:
-			if (self.head == 134 && self.body == 95 && self.legs == 79) {
+			if (self.head === 134 && self.body === 95 && self.legs === 79) {
 				self.minionKB += 2.0;
 				self.minionDamage += 0.05;
 			}
@@ -112,11 +112,11 @@ ApplyEquipFunctional.hook((original, self, itemSlot, currentItem) => {
 			self.statDefense += 10;
 			break;
 		case 2280:
-			if (self.head == 157 && self.legs == 98) {
-				if (self.body == 106) {
+			if (self.head === 157 && self.legs === 98) {
+				if (self.body === 106) {
 					self.statDefense += 15;
 					self.endurance += 0.1;
-				} else if (self.body == 105) {
+				} else if (self.body === 105) {
 					self.meleeDamage += 0.1;
 					self.meleeCrit += 10;
 				}
@@ -138,32 +138,32 @@ ApplyEquipFunctional.hook((original, self, itemSlot, currentItem) => {
 			self.jumpSpeedBoost += 1.2;
 			break;
 		case 3468:
-			if (self.head == 171 && self.body == 177 && self.legs == 112) {
+			if (self.head === 171 && self.body === 177 && self.legs === 112) {
 				self.meleeDamage += 0.07;
 				self.meleeCrit += 3;
 			}
 			break;
 		case 3469:
-			if (self.head == 169 && self.body == 175 && self.legs == 110) {
+			if (self.head === 169 && self.body === 175 && self.legs === 110) {
 				self.rangedDamage += 0.03;
 				self.rangedCrit += 7;
 			}
 			break;
 		case 3471:
-			if (self.head == 189 && self.body == 190 && self.legs == 130) {
+			if (self.head === 189 && self.body === 190 && self.legs === 130) {
 				self.maxMinions++;
 				self.minionDamage += 0.05;
 			}
 			break;
 		case 1162:
-			if (self.head == 82 && self.body == 53 && self.legs == 48) {
+			if (self.head === 82 && self.body === 53 && self.legs === 48) {
 				self.statDefense += 10;
 				self.endurance += 0.1;
 				self.AddBuff(165, 5, true);
 			}	
 			break;
 		case 3470:
-			if (self.head == 170 && self.body == 176 && self.legs == 111) {
+			if (self.head === 170 && self.body === 176 && self.legs === 111) {
 				self.magicDamage += 0.05;
 				self.magicCrit += 5;
 				self.statManaMax2 += 20;
@@ -171,12 +171,12 @@ ApplyEquipFunctional.hook((original, self, itemSlot, currentItem) => {
 			}
 			break;
 		case 1866:
-			if (self.body == 67 && self.legs == 56) {
-				if (player.head == 103) {
+			if (self.body === 67 && self.legs === 56) {
+				if (self.head === 103) {
 					self.arrowDamage += 0.05;
-				} else if (player.head == 104) {
+				} else if (self.head === 104) {
 					self.bulletDamage += 0.05;
-				} else if (player.head == 105) {
+				} else if (self.head === 105) {
 					self.rocketDamage += 0.05;
 				}
 			}
