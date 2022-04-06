@@ -278,7 +278,7 @@ export class DropHelper {
             stack += this.DropItemFloatChanceToPlayer(player, itemIDs[i], chance);
         }
 
-        return stack + (this.DropItemFromSetConditionToPlayer(player, stack <= 0, itemIDs) ? 1 : 0);
+        return stack;
     }
 
     /**
@@ -299,7 +299,7 @@ export class DropHelper {
             stack += this.DropItemFixedChanceToPlayer(player, itemIDs[i], chance);
         }
 
-        return stack + (this.DropItemFromSetConditionToPlayer(player, stack <= 0, itemIDs) ? 1 : 0);
+        return stack;
     }
 
     /**
@@ -324,7 +324,7 @@ export class DropHelper {
      * Выпадение случайного предмета с массива предметов с убитого НПС при выполнении нужного условия
      * @param {NPC} npc НПС с которого выпадает предмет
      * @param {bool} condition Условие при котором выпадет предмет
-     * @param {int[]} itemIDs Массив выдаваемых предметов
+     * @param {int[]} itemIDs Массив выпадаемых предметов
      * @returns {bool} Может ли выпасть случайный предмет c массива предметов с убитого НПС при выполнении нужного условия
      */
     static DropItemFromSetConditionFromNPC(npc, condition, itemIDs) {
@@ -335,7 +335,7 @@ export class DropHelper {
      * Выпадение набора случайных предметов с массива предметов с убитого НПС с определенным шансом
      * @param {NPC} npc НПС с которого выпадает предмет
      * @param {int} chance Шанс выпасть
-     * @param {int[]} itemIDs Массив выдаваемых предметов
+     * @param {int[]} itemIDs Массив выпадаемых предметов
      * @returns {int} Общее количество выпадаемых предметов с массива предметов с убитого НПС
      */
     static DropEntireSetFixedChanceFromNPC(npc, chance, itemIDs) {
@@ -349,14 +349,14 @@ export class DropHelper {
             stack += this.DropItemFixedChanceFromNPC(npc, itemIDs[i], chance);
         }
 
-        return stack + (this.DropItemFromSetConditionFromNPC(npc, stack <= 0, itemIDs) ? 1 : 0);
+        return stack;
     }
 
     /**
      * Выпадение набора случайных предметов с массива предметов с убитого НПС с определенным шансом
      * @param {NPC} npc НПС с которого выпадает предмет
      * @param {float} chance Шанс выпасть
-     * @param {int[]} itemIDs Массив выдаваемых предметов
+     * @param {int[]} itemIDs Массив выпадаемых предметов
      * @returns {int} Общее количество выпадаемых предметов с массива предметов с убитого НПС
      */
     static DropEntireSetFloatChanceFromNPC(npc, chance, itemIDs) {
@@ -370,6 +370,66 @@ export class DropHelper {
             stack += this.DropItemFloatChanceFromNPC(npc, itemIDs[i], chance);
         }
 
-        return stack + (this.DropItemFromSetConditionFromNPC(npc, stack <= 0, itemIDs) ? 1 : 0);
+        return stack;
+    }
+
+    /**
+     * Выпадение полного набора предметов с массива предметов с убитого НПС
+     * @param {NPC} npc НПС с которого выпадает предмет
+     * @param {int[]} itemIDs Массив выпадаемых предметов
+     * @returns {int} Общее количество выпадаемых предметов с массива предметов с убитого НПС
+     */
+    static DropFullItemSetFromNPC(npc, itemIDs) {
+        if (itemIDs === undefined || itemIDs.length === 0) {
+            return false;
+        }
+
+        for (let i = 0; i < itemIDs.length; i++) {
+            Terraria.Item['int NewItem(int X, int Y, int Width, int Height, int Type, int Stack, bool noBroadcast, int pfix, bool noGrabDelay, bool reverseLookup)']
+            (npc.position.X, npc.position.Y, npc.width, npc.height, itemIDs[i], 1, false, 0, false, false);
+        }
+
+        return true;
+    }
+
+    /**
+     * Выпадение полного набора предметов с массива предметов с убитого НПС при выполнении нужного условия
+     * @param {NPC} npc НПС с которого выпадает предмет
+     * @param {bool} condition Условие при котором выпадет предмет
+     * @param {int[]} itemIDs Массив выпадаемых предметов
+     * @returns {int} Общее количество выпадаемых предметов с массива предметов с убитого НПС при выполнении нужного условия
+     */
+    static DropFullItemSetConditionFromNPC(npc, condition, itemIDs) {
+        return condition && this.DropFullItemSetFromNPC(npc, itemIDs);
+    }
+
+    /**
+     * Выпадение полного набора предметов с массива предметов с убитого НПС с определенным шансом
+     * @param {NPC} npc НПС с которого выпадает предмет
+     * @param {float} chance Шанс выпасть
+     * @param {int[]} itemIDs Массив выпадаемых предметов
+     * @returns {int} Общее количество выпадаемых предметов с массива предметов с убитого НПС с определенным шансом
+     */
+    static DropFullItemSetFixedChanceFromNPC(npc, chance, itemIDs) {
+        if (Terraria.Main.rand['int Next(int maxValue)'](chance) !== 0) {
+            return 0;
+        }
+
+        return this.DropFullItemSetFromNPC(npc, itemIDs);
+    }
+
+    /**
+     * Выпадение полного набора предметов с массива предметов с убитого НПС с определенным шансом
+     * @param {NPC} npc НПС с которого выпадает предмет
+     * @param {float} chance Шанс выпасть
+     * @param {int[]} itemIDs Массив выпадаемых предметов
+     * @returns {int} Общее количество выпадаемых предметов с массива предметов с убитого НПС с определенным шансом
+     */
+    static DropFullItemSetFloatChanceFromNPC(npc, chance, itemIDs) {
+        if (Terraria.Utils['float NextFloat(UnifiedRandom r)'](Terraria.Main.rand) > chance) {
+            return 0;
+        }
+
+        return this.DropFullItemSetFromNPC(npc, itemIDs);
     }
 }
