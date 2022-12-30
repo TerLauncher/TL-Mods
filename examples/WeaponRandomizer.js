@@ -13,8 +13,6 @@ let timerGiveItem = Main.GameUpdateCount;
 
 const random = (max) => Math.floor(Math.random() * max);
 
-const randomPrefix = () => random(prefixCount());
-
 const randomWeapon = () => {
   const phItemID = random(PRE_HARDMODE.length);
   const hItemID = random(HARDMODE.length);
@@ -25,6 +23,8 @@ const randomWeapon = () => {
   
   return PRE_HARDMODE[phItemID];
 }
+
+const randomPrefix = () => random(prefixCount());
 
 const PRE_HARDMODE = [
   3507,

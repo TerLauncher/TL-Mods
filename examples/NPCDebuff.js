@@ -8,7 +8,6 @@ const TextureAssets = new NativeClass('Terraria.GameContent', 'TextureAssets');
 const Rectangle = new NativeClass('Microsoft.Xna.Framework', 'Rectangle');
 const Texture2D = new NativeClass('Microsoft.Xna.Framework.Graphics', 'Texture2D');
 
-const Height = Texture2D['int get_Height()'];
 const Op_Subtraction = Vector2['Vector2 op_Subtraction(Vector2 value1, Vector2 value2)'];
 const Draw = SpriteBatch['void Draw(Texture2D texture, Rectangle destinationRectangle, Color color)'];
 
@@ -102,7 +101,7 @@ const drawNpcDebuffs = (npcIndex) => {
             const num = 14.0 * Math.floor(i * 0.2);
             const drawBuffPos = Op_Subtraction(npc.Center, Main.screenPosition);
             drawBuffPos.X += 16.0 * (i - midpoint);
-            drawBuffPos.Y -= Height(TextureAssets.Npc[npc.type].Value) / Main.npcFrameCount[npc.type] / 2 * npc.scale - npc.gfxOffY + 24.0 - num;
+            drawBuffPos.Y -= TextureAssets.Npc[npc.type].Value.Bounds.Height / Main.npcFrameCount[npc.type] / 2 * npc.scale - npc.gfxOffY + 24.0 - num;
 
             const rect = rectangle(
                 drawBuffPos.X,
@@ -116,8 +115,8 @@ const drawNpcDebuffs = (npcIndex) => {
     }
 }
 
-Main.DrawNPC.hook((original, self, iNPCIndex, behindTiles) => {
-    original(self, iNPCIndex, behindTiles);
+Main.DrawNPC.hook((original, self, iNPCIndex, behindTiles, lightMap, lightRegion) => {
+    original(self, iNPCIndex, behindTiles, lightMap, lightRegion);
 
     const npc = Main.npc[iNPCIndex];
 

@@ -9,18 +9,18 @@ const DD2Event = new NativeClass('Terraria.GameContent.Events', 'DD2Event');
 const Recipe = new NativeClass('Terraria', 'Recipe');
 
 const SetDefaults = Item['void SetDefaults(int Type)'];
-const SetDefaults2 = Item["void SetDefaults(int Type, bool noMatCheck)"];
+const SetDefaults2 = Item['void SetDefaults(int Type, bool noMatCheck, ItemVariant variant)'];
 const SetupShop = Chest['void SetupShop(int type)'];
 const SetupRecipes = Recipe['void SetupRecipes()'];
 const AddRecipe = Recipe['void AddRecipe()'];
 
 let CreateNewRecipe = function(createItemIdType, requiredItem) {
 	SetDefaults(Recipe.currentRecipe.createItem, createItemIdType);
-	Recipe.currentRecipe.createItem.stack = 1;
-	SetDefaults(Recipe.currentRecipe.requiredItem[0], requiredItem);
-	Recipe.currentRecipe.requiredItem[0].stack = 1;
-	Recipe.currentRecipe.requiredTile[0] = 18;
-	AddRecipe();
+    Recipe.currentRecipe.createItem.stack = 1;
+    SetDefaults(Recipe.currentRecipe.requiredItem[0], requiredItem);
+    Recipe.currentRecipe.requiredItem[0].stack = 1;
+		Recipe.currentRecipe.requiredTile[0] = 18;
+    AddRecipe();
 };
 
 SetupRecipes.hook(original => {
@@ -344,9 +344,8 @@ SetupShop.hook((original, self, type) => {
 	}
 });
 
-SetDefaults2.hook((original, self, type, noMatCheck) => {
-
-	original(self, type, noMatCheck);
+SetDefaults2.hook((original, self, type, noMatCheck, variant) => {
+	original(self, type, noMatCheck, variant);
 
 	switch (type) {
 		case 3458:
@@ -355,92 +354,74 @@ SetDefaults2.hook((original, self, type, noMatCheck) => {
 		case 3459:
 			self.value = Item.buyPrice(0, 5, 50, 0);
 			break;
-
 		case 3460:
 			self.value = Item.buyPrice(0, 10, 0, 0);
 			break;
-
 		case 3318:
 		case 560:
 			self.value = Item.buyPrice(0, 10, 0, 0);
 			break;
-
 		case 3319:
 		case 43:
 			self.value = Item.buyPrice(0, 15, 0, 0);
 			break;
-
 		case 3321:
 		case 1331:
 			self.value = Item.buyPrice(0, 20, 0, 0);
 			break;
-
 		case 3320:
 		case 70:
 			self.value = Item.buyPrice(0, 20, 0, 0);
 			break;
-
 		case 3322:
 		case 1133:
 			self.value = Item.buyPrice(0, 15, 0, 0);
 			break;
-
 		case 3323:
 		case 1307:
 			self.value = Item.buyPrice(0, 25, 0, 0);
 			break;
-
 		case 3324:
 		case 267:
 			self.value = Item.buyPrice(0, 30, 0, 0);
 			break;
-
 		case 3325:
 		case 556:
 			self.value = Item.buyPrice(0, 40, 0, 0);
 			break;
-
 		case 3326:
 		case 544:
 			self.value = Item.buyPrice(0, 40, 0, 0);
 			break;
-
 		case 3327:
 		case 557:
 			self.value = Item.buyPrice(0, 40, 0, 0);
 			break;
-
 		case 4957:
 		case 4988:
 			self.value = Item.buyPrice(0, 40, 0, 0);
 			break;
-
 		case 3328:
 			self.value = Item.buyPrice(0, 50, 0, 0);
 			break;
 		case 4782:
 			self.value = Item.buyPrice(1, 0, 0, 0);
 			break;
-
 		case 3329:
 		case 1293:
 			self.value = Item.buyPrice(0, 70, 0, 0);
 			break;
-
 		case 3330:
 		case 2673:
 			self.value = Item.buyPrice(0, 60, 0, 0);
 			break;
-
 		case 3331:
 			self.value = Item.buyPrice(0, 80, 0, 0);
 			break;
-
 		case 3332:
 		case 3601:
 			self.value = Item.buyPrice(1, 50, 0, 0);
 			break;
-			
 		case 3860:
 			self.value = Item.buyPrice(0, 70, 0, 0);
 			break;

@@ -3,7 +3,7 @@
 const Main = new NativeClass('Terraria', 'Main');
 const Projectile = new NativeClass('Terraria', 'Projectile');
 
-const NewProjectile = Projectile['int NewProjectile(float X, float Y, float SpeedX, float SpeedY, int Type, int Damage, float KnockBack, int Owner, float ai0, float ai1)'];
+const NewProjectile = Projectile['int NewProjectile(IEntitySource spawnSource, float X, float Y, float SpeedX, float SpeedY, int Type, int Damage, float KnockBack, int Owner, float ai0, float ai1, float ai2)'];
 
 function Random(min, max) {
 	return Math.floor(Math.random() * (max - min + 1)) + min;
@@ -35,7 +35,7 @@ Projectile.StatusNPC.hook((original, self, i) => {
 			npc.AddBuff(31, 60 * Random(1, 4), false);
 		}
 		if (meleeEnchant === 7) {
-			NewProjectile(npc.Center.X, npc.Center.Y, npc.velocity.X, npc.velocity.Y, 289, 0, 0.0, self.owner, 0.0, 0.0);
+			NewProjectile(Projectile.GetNoneSource(), npc.Center.X, npc.Center.Y, npc.velocity.X, npc.velocity.Y, 289, 0, 0.0, self.owner, 0.0, 0.0, 0.0);
 		}
 		if (meleeEnchant === 8) {
 			npc.AddBuff(20, 60 * Random(5, 10), false);

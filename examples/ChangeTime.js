@@ -4,11 +4,11 @@ const Player = new NativeClass('Terraria', 'Player');
 const Item = new NativeClass('Terraria', 'Item');
 const Main = new NativeClass('Terraria', 'Main');
 
-const ItemCheck = Player['void ItemCheck(int i)'];
-const SetDefaults = Item["void SetDefaults(int Type, bool noMatCheck)"];
+const ItemCheck = Player['void ItemCheck()'];
+const SetDefaults = Item['void SetDefaults(int Type, bool noMatCheck, ItemVariant variant)'];
 
-SetDefaults.hook((original, self, type, noMatCheck) => {
-	original(self, type, noMatCheck);
+SetDefaults.hook((original, self, type, noMatCheck, variant) => {
+	original(self, type, noMatCheck, variant);
 
 	switch (type) {
 		case 15:
@@ -26,10 +26,10 @@ SetDefaults.hook((original, self, type, noMatCheck) => {
 });
 
 
-ItemCheck.hook((original, self, i) => {
-	original(self, i);
+ItemCheck.hook((original, self) => {
+	original(self);
 
-	let item = self.inventory[self.selectedItem];
+	let item = self.HeldItem;
 
 	switch (item.type) {
 		case 15:

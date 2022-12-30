@@ -1,5 +1,4 @@
 // Author: Yum (Razz#3533)
-
 const ChatCommandProcessor = new NativeClass('Terraria.Chat', 'ChatCommandProcessor');
 const ChatManager = new NativeClass('Terraria.UI.Chat', 'ChatManager');
 const Main = new NativeClass('Terraria', 'Main');
@@ -32,14 +31,14 @@ const tools = {
 }
 
 function disableAllTools() {
-    for (const key of Object.getOwnPropertyNames(tools)) {
-        tools[key] = false;
+    for (const tool in tools) {
+        tools[tool] = false;
     }
 }
 
 function enableAllTools() {
-    for (const key of Object.getOwnPropertyNames(tools)) {
-        tools[key] = true;
+    for (const tool in tools) {
+        tools[tool] = true;
     }
 }
 
@@ -73,7 +72,7 @@ function drawPlayerPosition() {
 
     if (player.active) {
         Draw(Main.spriteBatch, TextureAssets.MagicPixel.Value, rect, Color.Black);
-        DrawString(Main.spriteBatch, font, `position x:${player.position.X.toFixed(0)}, y:${player.position.Y.toFixed(0)}`, Op_Addition(Op_Subtraction(player.position, Main.screenPosition), vector(10.0, -20.0)), Color.White, 0.0,  Vector2.Zero, vector(0.9, 0.9), -1.0, 0.0);
+        DrawString(Main.spriteBatch, font, `position x:${player.position.X.toFixed(0)}, y:${player.position.Y.toFixed(0)}`, Op_Addition(Op_Subtraction(player.position, Main.screenPosition), vector(10.0, -20.0)), Color.White, 0.0, Vector2.Zero, vector(0.9, 0.9), -1.0, 0.0);
     }
 }
 
@@ -83,7 +82,7 @@ function drawPlayerVelocity() {
     const end = Op_Addition(player.Center, (Op_Multiply(player.velocity, 30.0)));
 
     if (player.active) {
-        DrawString(Main.spriteBatch, font, `velocity x:${player.velocity.X.toFixed(0)}, y:${player.velocity.Y.toFixed(0)}`, Op_Addition(Op_Subtraction(player.position, Main.screenPosition), vector(10.0, -35.0)), Color.Red, 0.0,  Vector2.Zero, vector(0.9, 0.9), -1.0, 0.0);
+        DrawString(Main.spriteBatch, font, `velocity x:${player.velocity.X.toFixed(0)}, y:${player.velocity.Y.toFixed(0)}`, Op_Addition(Op_Subtraction(player.position, Main.screenPosition), vector(10.0, -35.0)), Color.Red, 0.0, Vector2.Zero, vector(0.9, 0.9), -1.0, 0.0);
         DrawLine(Main.spriteBatch, player.Center, end, Color.Red, Color.Green, 4.0);
     }
 }
@@ -105,30 +104,30 @@ function drawNpcInfo(npcIndex) {
         Draw(Main.spriteBatch, TextureAssets.MagicPixel.Value, rect, Color.NavajoWhite);
 
         for (let i = 0; i < 4; i++) {
-            DrawString(Main.spriteBatch, font, `ai[${i}]:${npc.ai[i]}`, Op_Addition(TopLeft(rect), vector(x + i * 80, y)), Color.Black, 0.0,  Vector2.Zero, vector(0.8, 0.8), -1.0, 0.0);
+            DrawString(Main.spriteBatch, font, `ai[${i}]:${npc.ai[i]}`, Op_Addition(TopLeft(rect), vector(x + i * 80, y)), Color.Black, 0.0, Vector2.Zero, vector(0.8, 0.8), -1.0, 0.0);
         }
 
         y += 20.0;
-        DrawString(Main.spriteBatch, font, `localAI[0]: ${npc.localAI[0]}`, Op_Addition(TopLeft(rect), vector(x, y)), Color.Black, 0.0,  Vector2.Zero, vector(0.8, 0.8), -1.0, 0.0);
-        DrawString(Main.spriteBatch, font, `localAI[1]: ${npc.localAI[1]}`, Op_Addition(TopLeft(rect), vector(x + 120, y)), Color.Black, 0.0,  Vector2.Zero, vector(0.8, 0.8), -1.0, 0.0);
+        DrawString(Main.spriteBatch, font, `localAI[0]: ${npc.localAI[0]}`, Op_Addition(TopLeft(rect), vector(x, y)), Color.Black, 0.0, Vector2.Zero, vector(0.8, 0.8), -1.0, 0.0);
+        DrawString(Main.spriteBatch, font, `localAI[1]: ${npc.localAI[1]}`, Op_Addition(TopLeft(rect), vector(x + 120, y)), Color.Black, 0.0, Vector2.Zero, vector(0.8, 0.8), -1.0, 0.0);
 
         y += 20.0;
-        DrawString(Main.spriteBatch, font, `localAI[2]: ${npc.localAI[2]}`, Op_Addition(TopLeft(rect), vector(x, y)), Color.Black, 0.0,  Vector2.Zero, vector(0.8, 0.8), -1.0, 0.0);
-        DrawString(Main.spriteBatch, font, `localAI[3]: ${npc.localAI[3]}`, Op_Addition(TopLeft(rect), vector(x + 120, y)), Color.Black, 0.0,  Vector2.Zero, vector(0.8, 0.8), -1.0, 0.0);
+        DrawString(Main.spriteBatch, font, `localAI[2]: ${npc.localAI[2]}`, Op_Addition(TopLeft(rect), vector(x, y)), Color.Black, 0.0, Vector2.Zero, vector(0.8, 0.8), -1.0, 0.0);
+        DrawString(Main.spriteBatch, font, `localAI[3]: ${npc.localAI[3]}`, Op_Addition(TopLeft(rect), vector(x + 120, y)), Color.Black, 0.0, Vector2.Zero, vector(0.8, 0.8), -1.0, 0.0);
 
         y += 20.0;
-        DrawString(Main.spriteBatch, font, `velocityX: ${npc.velocity.X.toFixed(0)}`, Op_Addition(TopLeft(rect), vector(x, y)), Color.Black, 0.0,  Vector2.Zero, vector(0.8, 0.8), -1.0, 0.0);
-        DrawString(Main.spriteBatch, font, `velocityY: ${npc.velocity.Y.toFixed(0)}`, Op_Addition(TopLeft(rect), vector(x + 120, y)), Color.Black, 0.0,  Vector2.Zero, vector(0.8, 0.8), -1.0, 0.0);
+        DrawString(Main.spriteBatch, font, `velocityX: ${npc.velocity.X.toFixed(0)}`, Op_Addition(TopLeft(rect), vector(x, y)), Color.Black, 0.0, Vector2.Zero, vector(0.8, 0.8), -1.0, 0.0);
+        DrawString(Main.spriteBatch, font, `velocityY: ${npc.velocity.Y.toFixed(0)}`, Op_Addition(TopLeft(rect), vector(x + 120, y)), Color.Black, 0.0, Vector2.Zero, vector(0.8, 0.8), -1.0, 0.0);
 
         y += 20.0;
-        DrawString(Main.spriteBatch, font, `npc.immune[]: ${npc.immune[Main.myPlayer]}`, Op_Addition(TopLeft(rect), vector(x, y)), Color.Black, 0.0,  Vector2.Zero, vector(0.8, 0.8), -1.0, 0.0);
-        DrawString(Main.spriteBatch, font, `direction: ${npc.direction}`, Op_Addition(TopLeft(rect), vector(x + 110, y)), Color.Black, 0.0,  Vector2.Zero, vector(0.8, 0.8), -1.0, 0.0);
+        DrawString(Main.spriteBatch, font, `npc.immune[]: ${npc.immune[Main.myPlayer]}`, Op_Addition(TopLeft(rect), vector(x, y)), Color.Black, 0.0, Vector2.Zero, vector(0.8, 0.8), -1.0, 0.0);
+        DrawString(Main.spriteBatch, font, `direction: ${npc.direction}`, Op_Addition(TopLeft(rect), vector(x + 110, y)), Color.Black, 0.0, Vector2.Zero, vector(0.8, 0.8), -1.0, 0.0);
 
         y += 20.0;
-        DrawString(Main.spriteBatch, font, `type: ${npc.type}  aiStyle: ${npc.aiStyle}  whoAmI: ${npc.whoAmI}`, Op_Addition(TopLeft(rect), vector(x, y)), Color.Black, 0.0,  Vector2.Zero, vector(0.8, 0.8), -1.0, 0.0);
+        DrawString(Main.spriteBatch, font, `type: ${npc.type}  aiStyle: ${npc.aiStyle}  whoAmI: ${npc.whoAmI}`, Op_Addition(TopLeft(rect), vector(x, y)), Color.Black, 0.0, Vector2.Zero, vector(0.8, 0.8), -1.0, 0.0);
 
         y += 20.0;
-        DrawString(Main.spriteBatch, font, `lifeMax: ${npc.lifeMax}  defense: ${npc.defense}  damage: ${npc.damage}`, Op_Addition(TopLeft(rect), vector(x, y)), Color.Black, 0.0,  Vector2.Zero, vector(0.8, 0.8), -1.0, 0.0);
+        DrawString(Main.spriteBatch, font, `lifeMax: ${npc.lifeMax}  defense: ${npc.defense}  damage: ${npc.damage}`, Op_Addition(TopLeft(rect), vector(x, y)), Color.Black, 0.0, Vector2.Zero, vector(0.8, 0.8), -1.0, 0.0);
     }
 }
 
@@ -173,8 +172,8 @@ Main.DrawRain.hook((original, self) => {
     if (tools.showProjectileHitbox) drawProjectileDamageHitbox();
 });
 
-Main.DrawNPC.hook((original, self, iNPCIndex, behindTiles) => {
-    original(self, iNPCIndex, behindTiles);
+Main.DrawNPC.hook((original, self, iNPCIndex, behindTiles, lightMap, lightRegion) => {
+    original(self, iNPCIndex, behindTiles, lightMap, lightRegion);
 
     if (tools.showNpcInfo) drawNpcInfo(iNPCIndex);
     if (tools.showNpcHitbox) drawNpcHitbox(iNPCIndex);
@@ -184,7 +183,8 @@ ChatCommandProcessor.ProcessIncomingMessage.hook((original, self, message, clien
     original(self, message, client_id);
 
     const command = message.Text;
-    const isRussian = GameCulture.FromCultureName(GameCulture.CultureName.Russian).IsActive;
+    const isRussian = GameCulture.FromCultureName(GameCulture.CultureName.Russian)
+        .IsActive;
 
     const enabledText = isRussian ? 'включено' : 'enabled';
     const disabledText = isRussian ? 'отключено' : 'disabled';
@@ -225,16 +225,17 @@ ChatCommandProcessor.ProcessIncomingMessage.hook((original, self, message, clien
                 textToShow = `${info} ${tools.showProjectileHitbox ? enabledText : disabledText}`;
                 break;
             }
-			case '0': {
-                const someToolsEnabled = Object.getOwnPropertyNames(tools).some((key) => tools[key]);
+            case '0': {
+                const someToolsEnabled = Object.getOwnPropertyNames(tools)
+                    .some((key) => tools[key]);
 
                 let statusText = "";
 
                 if (someToolsEnabled) {
-					disableAllTools();
-               	    statusText = isRussian ? 'отключены' : 'disabled';
+                    disableAllTools();
+                    statusText = isRussian ? 'отключены' : 'disabled';
                 } else {
-					enableAllTools();
+                    enableAllTools();
                     statusText = isRussian ? 'включены' : 'enabled';
                 }
 

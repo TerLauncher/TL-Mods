@@ -22,7 +22,6 @@ const Utils = new NativeClass('Terraria', 'Utils');
 const NextVector2Square = Utils['Vector2 NextVector2Square(UnifiedRandom r, float min, float max)'];
 const RotatedByRandom = Utils['Vector2 RotatedByRandom(Vector2 spinninpoint, double maxRadians)'];
 const Normalize = Vector2['void Normalize()'];
-const SetDefaults = Item['void SetDefaults(int Type, bool noMatCheck)'];
 const CombatNewText = CombatText['int NewText(Rectangle location, Color color, string text, bool dramatic, bool dot)'];
 const Sign = MathCS['int Sign(float value)'];
 const Op_Multiply = Vector2['Vector2 op_Multiply(Vector2 value, float scaleFactor)'];
@@ -30,8 +29,8 @@ const Op_Subtraction = Vector2['Vector2 op_Subtraction(Vector2 value1, Vector2 v
 const Op_Addition = Vector2['Vector2 op_Addition(Vector2 value1, Vector2 value2)'];
 const PlaySound = SoundEngine['void PlaySound(int type, Vector2 position, int style)'];
 const Next = UnifiedRandom['int Next(int minValue, int maxValue)'];
-const NewProjectile = Projectile['int NewProjectile(float X, float Y, float SpeedX, float SpeedY, int Type, int Damage, float KnockBack, int Owner, float ai0, float ai1)'];
-const NewProjectile2 = Projectile['int NewProjectile(Vector2 position, Vector2 velocity, int Type, int Damage, float KnockBack, int Owner, float ai0, float ai1)'];
+const NewProjectile = Projectile['int NewProjectile(IEntitySource spawnSource, float X, float Y, float SpeedX, float SpeedY, int Type, int Damage, float KnockBack, int Owner, float ai0, float ai1, float ai2)'];
+const NewProjectile2 = Projectile['int NewProjectile(IEntitySource spawnSource, Vector2 position, Vector2 velocity, int Type, int Damage, float KnockBack, int Owner, float ai0, float ai1, float ai2)'];
 
 class Boss {
     constructor(id, changeTimeTo, spawnContext, specialSpawnCountdown, permittedNPCs) {
@@ -88,18 +87,19 @@ const endEffects = () => {
 }
 
 const bosses = [
-    new Boss(50, 0, null, -1, [1, -9, -7, -8, -3, 147, 225, -4, 535, 244]),
-    new Boss(4, 2, null, -1, [5]),
-    new Boss(266, 0, null, -1, [267]),
-    new Boss(13, 0, null, -1, [14, 15, 112]),
-    new Boss(222, 0, null, -1, []),
-    new Boss(35, 2, (type) => {
-        const player = Main.player[closestPlayerToWorldCenter()];
-        const num = NPC.NewNPC(player.position.X + Next(Main.rand, -200, 201), player.position.Y - 400.0, type, 1, 0.0, 0.0, 0.0, 0.0, 255);
+    new Boss(50, 0, null, -1, [1, -9, -7, -8, -3, 147, 225, -4, 535, 244]), // King Slime
+    new Boss(4, 2, null, -1, [5]), // Eye of Cthulhu
+    new Boss(266, 0, null, -1, [267]), // Brain of Cthulhu
+    new Boss(13, 0, null, -1, [14, 15, 112]), // Eater of Worlds
+    new Boss(222, 0, null, -1, []), // Queen Bee
+    new Boss(35, 2, (type) => { // Skeletron 
+		let index = closestPlayerToWorldCenter();
+        const player = Main.player[index];
+        const num = NPC.NewNPC(NPC.GetBossSpawnSource(index), player.position.X + Next(Main.rand, -200, 201), player.position.Y - 400.0, type, 1, 0.0, 0.0, 0.0, 0.0, 255);
         Main.npc[num].timeLeft *= 20;
         bossAwakenMessage(num);
     }, -1, [36]),
-    new Boss(113, 0, () => {
+    new Boss(113, 0, () => { // Wall of Flesh
         NPC.SpawnWOF(Main.player[closestPlayerToWorldCenter()].position);
     }, -1, [114, 117, 118, 119, 115, 116]),
     new Boss(657, 0, () => {
@@ -115,22 +115,25 @@ const bosses = [
     new Boss(134, 2, null, -1, [135, 136, 139]),
     new Boss(127, 2, null, -1, [128, 129, 130, 131, 139]),
     new Boss(370, 0, (type) => {
-        const player = Main.player[closestPlayerToWorldCenter()];
-        const num = NPC.NewNPC(player.position.X + Next(Main.rand, -200, 201), player.position.Y - 400.0, type, 1, 0.0, 0.0, 0.0, 0.0, 255);
+		let index = closestPlayerToWorldCenter();
+        const player = Main.player[index];
+        const num = NPC.NewNPC(NPC.GetBossSpawnSource(index), player.position.X + Next(Main.rand, -200, 201), player.position.Y - 400.0, type, 1, 0.0, 0.0, 0.0, 0.0, 255);
         Main.npc[num].timeLeft *= 20;
         bossAwakenMessage(num);
     }, -1, [371, 372, 373]),
     new Boss(262, 0, null, -1, [264, 263, 265]),
     new Boss(636, 2, null, -1, []),
     new Boss(245, 1, (type) => {
-        const player = Main.player[closestPlayerToWorldCenter()];
-        const num = NPC.NewNPC(player.position.X + Next(Main.rand, -200, 201), player.position.Y - 400.0, type, 1, 0.0, 0.0, 0.0, 0.0, 255);
+		let index = closestPlayerToWorldCenter();
+        const player = Main.player[index];
+        const num = NPC.NewNPC(NPC.GetBossSpawnSource(index), player.position.X + Next(Main.rand, -200, 201), player.position.Y - 400.0, type, 1, 0.0, 0.0, 0.0, 0.0, 255);
         Main.npc[num].timeLeft *= 20;
         bossAwakenMessage(num);
     }, -1, [247, 248, 246, 249]),
     new Boss(439, 0, (type) => {
-        const player = Main.player[closestPlayerToWorldCenter()];
-        const num = NPC.NewNPC(player.Center.X, player.Center.Y - 400.0, type, 1, 0.0, 0.0, 0.0, 0.0, 255);
+		let index = closestPlayerToWorldCenter();
+        const player = Main.player[index];
+        const num = NPC.NewNPC(NPC.GetBossSpawnSource(index), player.Center.X, player.Center.Y - 400.0, type, 1, 0.0, 0.0, 0.0, 0.0, 255);
         Main.npc[num].direction = (Main.npc[num].spriteDirection = Sign(player.Center.X - player.Center.X - 90.0));
         Main.npc[num].timeLeft *= 20;
         bossAwakenMessage(num);
@@ -212,7 +215,7 @@ const bossDeathEffects = (npc) => {
                 bossRushEvent.active = false;
 
                 const player = Main.player[closestPlayerToWorldCenter()];
-                const proj = NewProjectile(player.Center.X, player.Center.Y, 0.0, -5.0, 167, 0, 0.0, Main.myPlayer, 0.0, 0.0);
+                const proj = NewProjectile(Projectile.GetNoneSource(), player.Center.X, player.Center.Y, 0.0, -5.0, 167, 0, 0.0, Main.myPlayer, 0.0, 0.0, 0.0);
                 Main.projectile[proj].ranged = false;
                 Main.player[Main.myPlayer].QuickSpawnItem(4722, 1);
             }
@@ -234,6 +237,7 @@ const underworldTeleport = () => {
 
     player.grappling[0] = -1;
     player.grapCount = 0;
+	
     for (let i = 0; i < 1000; i++) {
         if (Main.projectile[i].active && Main.projectile[i].owner === player.whoAmI && Main.projectile[i].aiStyle === 7) {
             Main.projectile[i].Kill();
@@ -251,7 +255,8 @@ const underworldTeleport = () => {
         dust.velocity = Op_Multiply(dust.velocity, 0.5);
     }
 
-    PlaySound(2, player.position, 0);
+	// TODO: FIX PlaySound crash, null pointer exception!
+    //PlaySound(2, player.position, 0);
 }
 
 const forceDespawnOtherNPCs = (npc) => {
@@ -338,7 +343,7 @@ const bossRushKingSlimeAI = (npc) => {
                     Normalize(speed);
                     speed = Op_Multiply(speed, bossAttacks.kingSlime.enraged ? 0.25 : 0.15);
                     speed = RotatedByRandom(speed, MathHelper.ToRadians(4));
-                    const proj = NewProjectile2(spawn, speed, 27, npc.damage, 0.0, Main.myPlayer, 0.0, 0.0);
+                    const proj = NewProjectile2(Projectile.GetNoneSource(), spawn, speed, 27, npc.damage, 0.0, Main.myPlayer, 0.0, 0.0, 0.0);
                     Main.projectile[proj].friendly = false;
                     Main.projectile[proj].hostile = true;
                 }
@@ -355,7 +360,7 @@ const bossRushKingSlimeAI = (npc) => {
                 const spawnPos = Main.player[npc.target].Center;
                 spawnPos.X += 130 * i;
                 spawnPos.Y -= 350;
-                const proj = NewProjectile2(spawnPos, vector(0.0, 5.0), 188, npc.damage, 0.0, Main.myPlayer, 0.0, 0.0);
+                const proj = NewProjectile2(Projectile.GetNoneSource(), spawnPos, vector(0.0, 5.0), 188, npc.damage, 0.0, Main.myPlayer, 0.0, 0.0, 0.0);
                 Main.projectile[proj].friendly = false;
                 Main.projectile[proj].hostile = true;
             }
@@ -374,7 +379,7 @@ const bossRushKingSlimeAI = (npc) => {
                 distance.X /= time;
                 distance.Y = distance.Y / time - 0.5 * gravity * time;
                 for (let i = 0; i < 15; i++) {
-                    const proj = NewProjectile2(npc.Center, Op_Addition(distance, NextVector2Square(Main.rand, -1.0, 1.0)), 174, npc.damage, 0.0, Main.myPlayer, 0.0, 0.0);
+                    const proj = NewProjectile2(Projectile.GetNoneSource(), npc.Center, Op_Addition(distance, NextVector2Square(Main.rand, -1.0, 1.0)), 174, npc.damage, 0.0, Main.myPlayer, 0.0, 0.0, 0.0);
                     Main.projectile[proj].friendly = false;
                     Main.projectile[proj].hostile = true;
                     PlaySound(2, Main.projectile[proj].position, 17);
@@ -385,14 +390,6 @@ const bossRushKingSlimeAI = (npc) => {
         bossAttacks.kingSlime.currentlyJumping = false;
     }
 }
-
-// SetDefaults.hook((original, self, Type, noMatCheck) => {
-// 	original(self, Type, noMatCheck);
-//
-// 	if (self.type === 4722) {
-// 		self.SetNameOverride('Первый фрактал');
-// 	}
-// });
 
 NPC.AI.hook((original, self) => {
     original(self);

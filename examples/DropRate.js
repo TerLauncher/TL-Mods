@@ -1,11 +1,10 @@
 // Author: Yum (Razz#3533)
-
 const NPC = new NativeClass('Terraria', 'NPC');
 const Item = new NativeClass('Terraria', 'Item');
 const Main = new NativeClass('Terraria', 'Main');
 const ChatCommandProcessor = new NativeClass('Terraria.Chat', 'ChatCommandProcessor');
 
-const NewItem = Item['int NewItem(Vector2 pos, int Width, int Height, int Type, int Stack, bool noBroadcast, int prefixGiven, bool noGrabDelay, bool reverseLookup)'];
+const NewItem = Item['int NewItem(int X, int Y, int Width, int Height, int Type, int Stack, bool noBroadcast, int pfix, bool noGrabDelay, bool reverseLookup)'];
 
 function RandomQuantity(min, max) {
     return Math.floor(Math.random() * (max - min + 1)) + min;
@@ -15,13 +14,14 @@ function DropChance(chance) {
     if (Number.isInteger(chance)) {
         return Math.round(Math.random() * 100) < chance;
     } else {
-        return (Math.random() * 100).toFixed(1) < chance;
+        return (Math.random() * 100)
+            .toFixed(1) < chance;
     }
 }
 
 ChatCommandProcessor.ProcessIncomingMessage.hook((original, self, message, client_id) => {
-	original(self, message, client_id);
-	const command = message.Text;
+    original(self, message, client_id);
+    const command = message.Text;
     if (command === '/DropRate') {
         Main.NewText('[i:4714] - 0.5% - 1', 255, 255, 255);
         Main.NewText('[i:1537] - 0.5% - 1', 255, 255, 255);
@@ -74,13 +74,14 @@ NPC.NPCLoot_DropItems.hook((original, self, closestPlayer) => {
         case -7:
         case -9:
             if (DropChance(30)) {
-                NewItem(self.position, self.width, self.height, 9, RandomQuantity(1, 3), false, 0, false, false);
+
+                NewItem(self.position.X, self.position.Y, self.width, self.height, 9, RandomQuantity(1, 3), false, 0, false, false);
             }
             if (DropChance(0.5)) {
-                NewItem(self.position, self.width, self.height, 955, 1, false, 0, false, false);
+                NewItem(self.position.X, self.position.Y, self.width, self.height, 955, 1, false, 0, false, false);
             }
             if (DropChance(1)) {
-                NewItem(self.position, self.width, self.height, 954, 1, false, 0, false, false);
+                NewItem(self.position.X, self.position.Y, self.width, self.height, 954, 1, false, 0, false, false);
             }
             break;
         case 491:
@@ -90,12 +91,12 @@ NPC.NPCLoot_DropItems.hook((original, self, closestPlayer) => {
         case 212:
         case 215:
             if (DropChance(5)) {
-                NewItem(self.position, self.width, self.height, 855, 1, false, 0, false, false);
+                NewItem(self.position.X, self.position.Y, self.width, self.height, 855, 1, false, 0, false, false);
             }
             break;
         case 120:
             if (DropChance(3)) {
-                NewItem(self.position, self.width, self.height, 1236, 1, false, 0, false, false);
+                NewItem(self.position.X, self.position.Y, self.width, self.height, 1236, 1, false, 0, false, false);
             }
             break;
         case 489:
@@ -103,7 +104,7 @@ NPC.NPCLoot_DropItems.hook((original, self, closestPlayer) => {
         case 587:
         case 586:
             if (DropChance(5)) {
-                NewItem(self.position, self.width, self.height, 3213, 1, false, 0, false, false);
+                NewItem(self.position.X, self.position.Y, self.width, self.height, 3213, 1, false, 0, false, false);
             }
             break;
         case 269:
@@ -119,7 +120,7 @@ NPC.NPCLoot_DropItems.hook((original, self, closestPlayer) => {
         case 279:
         case 280:
             if (DropChance(3)) {
-                NewItem(self.position, self.width, self.height, 1183, 1, false, 0, false, false);
+                NewItem(self.position.X, self.position.Y, self.width, self.height, 1183, 1, false, 0, false, false);
             }
             break;
         case -5:
@@ -146,12 +147,12 @@ NPC.NPCLoot_DropItems.hook((original, self, closestPlayer) => {
         case 187:
         case 433:
             if (DropChance(0.5)) {
-                NewItem(self.position, self.width, self.height, 1309, 1, false, 0, false, false);
+                NewItem(self.position.X, self.position.Y, self.width, self.height, 1309, 1, false, 0, false, false);
             }
             break;
         case 73:
             if (DropChance(100)) {
-                NewItem(self.position, self.width, self.height, 362, RandomQuantity(2, 6), false, 0, false, false);
+                NewItem(self.position.X, self.position.Y, self.width, self.height, 362, RandomQuantity(2, 6), false, 0, false, false);
             }
             break;
         case 537:
@@ -164,81 +165,81 @@ NPC.NPCLoot_DropItems.hook((original, self, closestPlayer) => {
         case 509:
         case 513:
             if (DropChance(0.5)) {
-                NewItem(self.position, self.width, self.height, 934, 1, false, 0, false, false);
+                NewItem(self.position.X, self.position.Y, self.width, self.height, 934, 1, false, 0, false, false);
             }
             break;
         case 223:
             if (DropChance(0.5)) {
-                NewItem(self.position, self.width, self.height, 159, 1, false, 0, false, false);
+                NewItem(self.position.X, self.position.Y, self.width, self.height, 159, 1, false, 0, false, false);
             }
             break;
         case 6:
         case -11:
         case -12:
             if (DropChance(1)) {
-                NewItem(self.position, self.width, self.height, 956, 1, false, 0, false, false);
+                NewItem(self.position.X, self.position.Y, self.width, self.height, 956, 1, false, 0, false, false);
             }
             if (DropChance(1)) {
-                NewItem(self.position, self.width, self.height, 957, 1, false, 0, false, false);
+                NewItem(self.position.X, self.position.Y, self.width, self.height, 957, 1, false, 0, false, false);
             }
             if (DropChance(1)) {
-                NewItem(self.position, self.width, self.height, 958, 1, false, 0, false, false);
+                NewItem(self.position.X, self.position.Y, self.width, self.height, 958, 1, false, 0, false, false);
             }
             break;
         case 42:
         case 43:
             if (DropChance(1)) {
-                NewItem(self.position, self.width, self.height, 960, 1, false, 0, false, false);
+                NewItem(self.position.X, self.position.Y, self.width, self.height, 960, 1, false, 0, false, false);
             }
             if (DropChance(1)) {
-                NewItem(self.position, self.width, self.height, 961, 1, false, 0, false, false);
+                NewItem(self.position.X, self.position.Y, self.width, self.height, 961, 1, false, 0, false, false);
             }
             if (DropChance(1)) {
-                NewItem(self.position, self.width, self.height, 962, 1, false, 0, false, false);
+                NewItem(self.position.X, self.position.Y, self.width, self.height, 962, 1, false, 0, false, false);
             }
             break;
         case 60:
             if (DropChance(2)) {
-                NewItem(self.position, self.width, self.height, 1322, 1, false, 0, false, false);
+                NewItem(self.position.X, self.position.Y, self.width, self.height, 1322, 1, false, 0, false, false);
             }
             break;
     }
 
     if (Main.hardMode) {
         if (!NPC.downedMechBoss1 && DropChance(0.3)) {
-            NewItem(self.position, self.width, self.height, 556, 1, false, 0, false, false);
+            NewItem(self.position.X, self.position.Y, self.width, self.height, 556, 1, false, 0, false, false);
         } else if (!NPC.downedMechBoss2 && DropChance(0.3)) {
-            NewItem(self.position, self.width, self.height, 544, 1, false, 0, false, false);
+            NewItem(self.position.X, self.position.Y, self.width, self.height, 544, 1, false, 0, false, false);
         } else if (!NPC.downedMechBoss3 && DropChance(0.3)) {
-            NewItem(self.position, self.width, self.height, 557, 1, false, 0, false, false);
+            NewItem(self.position.X, self.position.Y, self.width, self.height, 557, 1, false, 0, false, false);
         }
 
         if (self.position.Y > Main.rockLayer * 16.0) {
             if (DropChance(33) && (player.ZoneCorrupt || player.ZoneCrimson)) {
-                NewItem(self.position, self.width, self.height, 521, RandomQuantity(1, 2), false, 0, false, false);
+                NewItem(self.position.X, self.position.Y, self.width, self.height, 521, RandomQuantity(1, 2), false, 0, false, false);
             }
             if (DropChance(33) && player.ZoneHallow) {
-                NewItem(self.position, self.width, self.height, 520, RandomQuantity(1, 2), false, 0, false, false);
+                NewItem(self.position.X, self.position.Y, self.width, self.height, 520, RandomQuantity(1, 2), false, 0, false, false);
             }
         }
 
         if (DropChance(0.5) && player.ZoneJungle) {
-            NewItem(self.position, self.width, self.height, 1533, 1, false, 0, false, false);
+            NewItem(self.position.X, self.position.Y, self.width, self.height, 1533, 1, false, 0, false, false);
         }
         if (DropChance(0.5) && player.ZoneCorrupt) {
-            NewItem(self.position, self.width, self.height, 1534, 1, false, 0, false, false);
+            NewItem(self.position.X, self.position.Y, self.width, self.height, 1534, 1, false, 0, false, false);
         }
         if (DropChance(0.5) && player.ZoneCrimson) {
-            NewItem(self.position, self.width, self.height, 1535, 1, false, 0, false, false);
+            NewItem(self.position.X, self.position.Y, self.width, self.height, 1535, 1, false, 0, false, false);
         }
         if (DropChance(0.5) && player.ZoneHallow) {
-            NewItem(self.position, self.width, self.height, 1536, 1, false, 0, false, false);
+            NewItem(self.position.X, self.position.Y, self.width, self.height, 1536, 1, false, 0, false, false);
         }
         if (DropChance(0.5) && player.ZoneSnow) {
-            NewItem(self.position, self.width, self.height, 1537, 1, false, 0, false, false);
+            NewItem(self.position.X, self.position.Y, self.width, self.height, 1537, 1, false, 0, false, false);
         }
         if (DropChance(0.5) && (player.ZoneDesert || player.ZoneUndergroundDesert)) {
-            NewItem(self.position, self.width, self.height, 4714, 1, false, 0, false, false);
+            NewItem(self.position.X, self.position.Y, self.width, self.height, 4714, 1, false, 0, false, false);
         }
     }
 });
