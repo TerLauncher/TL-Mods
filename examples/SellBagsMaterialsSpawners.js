@@ -24,9 +24,6 @@ let CreateNewRecipe = function(createItemIdType, requiredItem) {
 };
 
 SetupRecipes.hook(original => {
-
-	original();
-
 	CreateNewRecipe(3063, 3332);
 	CreateNewRecipe(3389, 3332);
 	CreateNewRecipe(3065, 3332);
@@ -80,6 +77,8 @@ SetupRecipes.hook(original => {
 	CreateNewRecipe(4953, 4782);
 	CreateNewRecipe(4952, 4782);
 	CreateNewRecipe(4923, 4782);
+
+	original();
 });
 
 SetupShop.hook((original, self, type) => {

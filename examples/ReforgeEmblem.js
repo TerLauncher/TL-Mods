@@ -8,8 +8,6 @@ const SetupRecipes = Recipe['void SetupRecipes()'];
 const AddRecipe = Recipe['void AddRecipe()'];
 
 SetupRecipes.hook(original => {
-	original();
-
 	SetDefaults(Recipe.currentRecipe.createItem, 489);
 	Recipe.currentRecipe.createItem.stack = 1;
 	SetDefaults(Recipe.currentRecipe.requiredItem[0], 490);
@@ -93,4 +91,6 @@ SetupRecipes.hook(original => {
 	Recipe.currentRecipe.requiredItem[0].stack = 2;
 	Recipe.currentRecipe.requiredTile[0] = 16;
 	AddRecipe();
+
+	original();
 });
